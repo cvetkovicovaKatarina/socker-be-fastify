@@ -1,0 +1,1 @@
+{"version":3,"file":"mongo-connector.js","sourceRoot":"","sources":["../src/mongo-connector.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,iDAA2C;AAC3C,mDAA2C;AAE3C,SAAe,cAAc,CAAC,OAAY,EAAE,OAAY;;;YACvD,OAAO,CAAC,QAAQ,CAAC,yBAAY,EAAE;gBAC9B,GAAG,EAAE,yCAAyC;aAC9C,CAAC,CAAC;;;;CACH;AAED,kBAAe,IAAA,wBAAa,EAAC,cAAc,CAAC,CAAC"}
