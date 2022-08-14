@@ -1,4 +1,5 @@
 import fastify from 'fastify';
+import routes from './routes';
 
 const server = fastify();
 
@@ -7,8 +8,9 @@ server.register(require('fastify-cors'), {
 	methods: ["POST"]
 });
 
-server.get('/hello', async (request, reply) => {
-	return 'Hello World!';
+
+server.get('/', async (request, reply) => {
+	return 'Socker-be-fastify';
 });
 
 server.listen(8080, (err, address) => {
@@ -18,3 +20,5 @@ server.listen(8080, (err, address) => {
 	}
 	console.log(`Server listening at ${address}`);
 });
+
+server.register(routes);

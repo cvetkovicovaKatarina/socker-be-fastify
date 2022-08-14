@@ -38,17 +38,67 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 function routes(fastify, options) {
     return __awaiter(this, void 0, void 0, function () {
-        var collection;
-        var _this = this;
         return __generator(this, function (_a) {
-            collection = fastify.mongo.db.collection('test_collection');
-            fastify.post('/game', function (request, reply) { return __awaiter(_this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, { message: 'Game was created.' }];
-                });
-            }); });
+            // const collection = fastify.mongo.db.collection('test_collection');
+            fastify.route({
+                method: 'POST',
+                url: '/word',
+                schema: {
+                    body: {
+                        userEmail: { type: 'string' },
+                        opponentEmail: { type: 'string' },
+                        word: { type: 'string' },
+                    },
+                    response: {
+                        200: {
+                            type: 'object',
+                            properties: {
+                                message: { type: 'string' },
+                            },
+                        },
+                    },
+                },
+                handler: function (_request, reply) {
+                    reply.send({ message: 'Game was created' });
+                },
+            });
             return [2 /*return*/];
         });
     });
 }
 exports.default = routes;
+// import fp from "fastify-plugin"
+// import { FastifyReply, FastifyRequest } from 'fastify'
+// export default fp(async (server: any, _opts: any, next: any) => {
+// 	// const collection = fastify.mongo.db.collection('test_collection')
+// 	server.post("/word", {}, async (request: FastifyRequest, reply: FastifyReply) => {
+// 		try {	
+// 		  return reply.code(201).send({ message: 'Nazdar ty pico.' });
+// 		} catch (error) {
+// 		  return reply.send(500);
+// 		}
+// 	  });
+// 	// fastify.route({
+// 	// 	method: 'POST',
+// 	// 	url: '/word',
+// 	// 	schema: {
+// 	// 		body: {
+// 	// 			userEmail: { type: 'string' },
+// 	// 			opponentEmail: { type: 'string' },
+// 	// 			word: { type: 'string' },
+// 	// 		},
+// 	// 		response: {
+// 	// 			200: {
+// 	// 				type: 'object',
+// 	// 				properties: {
+// 	// 					message: { type: 'string' },
+// 	// 				},
+// 	// 			},
+// 	// 		},
+// 	// 	},
+// 	// 	handler: function (_request: any, reply: any) {
+// 	// 		reply.send({ message: 'Game was created' })
+// 	// 	},
+// 	// })
+// 	next()
+// })

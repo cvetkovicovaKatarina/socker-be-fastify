@@ -40,14 +40,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var fastify_1 = __importDefault(require("fastify"));
+var routes_1 = __importDefault(require("./routes"));
 var server = (0, fastify_1.default)();
 server.register(require('fastify-cors'), {
     origin: "*",
     methods: ["POST"]
 });
-server.get('/hello', function (request, reply) { return __awaiter(void 0, void 0, void 0, function () {
+server.get('/', function (request, reply) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        return [2 /*return*/, 'Hello World!'];
+        return [2 /*return*/, 'Socker-be-fastify'];
     });
 }); });
 server.listen(8080, function (err, address) {
@@ -57,3 +58,4 @@ server.listen(8080, function (err, address) {
     }
     console.log("Server listening at ".concat(address));
 });
+server.register(routes_1.default);
